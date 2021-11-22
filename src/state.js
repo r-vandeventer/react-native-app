@@ -19,9 +19,9 @@ export const reducer = (state, action) => {
     case "ADD_TO_FAVOURITES":
       return {
         favourites:
-          state.favourites !== undefined
+          state.favourites !== undefined && state.favourites.length !== 0
             ? [...state.favourites, action.payload]
-            : action.payload,
+            : [action.payload],
       };
     case "REMOVE_FROM_FAVOURITES":
       return { favourites: state.favourites.pop(action.payload) };

@@ -8,12 +8,10 @@ export const Favourite = () => {
   const [favourites, setFavourites] = useState([]);
 
   useEffect(() => {
-    console.log(favourites);
-    console.log(state.favourites);
     state.favourites === undefined
       ? setFavourites(state.favourites)
       : setFavourites([]);
-  }, [favourites, state.favourites]);
+  }, [state.favourites]);
 
   return (
     <div className="discover">
