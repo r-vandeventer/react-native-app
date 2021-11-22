@@ -5,11 +5,12 @@ import Favourite from "./Favourites";
 
 export default function Routes() {
   const [state, dispatch] = useContext(AppContext);
-  const [route, setRoute] = useState("/");
-  // Here you'd return an array of routes
-  useEffect(() => {
-    setRoute(state.route);
-  }, [state.route]);
-
-  return route === "/" ? <Discover /> : <Favourite />;
+  console.log(state.route);
+  return state.route === undefined ? (
+    <Discover />
+  ) : state.route === "/" ? (
+    <Discover />
+  ) : (
+    <Favourite />
+  );
 }

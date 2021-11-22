@@ -34,7 +34,7 @@ export const SideBar = () => {
 
   const toggleDisplayed = (link) => {
     setSelected(!selected);
-    dispatch({ type: "CHANGE_ROUTE", payload: link });
+    dispatch({ type: "SET_ROUTE", payload: link });
   };
 
   return (
