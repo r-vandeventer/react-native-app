@@ -18,12 +18,7 @@ function scrollContainer(id, { isNegative } = {}) {
   };
 }
 
-export default function DiscoverBlock({
-  text,
-  id,
-  data,
-  imagesKey = "images",
-}) {
+export default function DiscoverBlock({ text, id, data }) {
   return (
     <div className="discover-block">
       <div className="discover-block__header">
@@ -43,8 +38,8 @@ export default function DiscoverBlock({
         ) : null}
       </div>
       <div className="discover-block__row" id={id}>
-        {data.map(({ [imagesKey]: images, name }) => (
-          <DiscoverItem key={id} images={images} name={name} />
+        {data.map(({ id, images, name }) => (
+          <DiscoverItem key={id} id={id} images={images} name={name} />
         ))}
       </div>
     </div>

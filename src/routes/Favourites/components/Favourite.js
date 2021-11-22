@@ -1,23 +1,29 @@
-import React, { Component } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import DiscoverBlock from "../../../common/components/DiscoverBlock/DiscoverBlock";
 import "../../../routes/Discover/styles/_discover.scss";
+import { AppContext } from "../../../state";
 
-export default class Favourite extends Component {
-  constructor() {
-    super();
+export const Favourite = () => {
+  const [state, dispatch] = useContext(AppContext);
+  const [favourites, setFavourites] = useState([]);
 
-    this.state = {
-      favourites: [],
-    };
-  }
+  useEffect(() => {
+    console.log(favourites);
+    console.log(state.favourites);
+    state.favourites === undefined
+      ? setFavourites(state.favourites)
+      : setFavourites([]);
+  }, [favourites, state.favourites]);
 
-  render() {
-    const { favourites } = this.state;
+  return (
+    <div className="discover">
+      <DiscoverBlock
+        text="FAVOURITES"
+        id="favourites"
+        data={favourites ? favourites : []}
+      />
+    </div>
+  );
+};
 
-    return (
-      <div className="discover">
-        <DiscoverBlock text="FAVOURITES" id="favourites" data={favourites} />
-      </div>
-    );
-  }
-}
+export default Favourite;
